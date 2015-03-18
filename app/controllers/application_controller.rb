@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   before_action :setup_mcapi
 
   def setup_mcapi
-    @mc = Mailchimp::API.new('00000000000000000000000000000000-us1')
+    @mc = Mailchimp::API.new('bf8ffc5058b43b00e7f12207f5511e67-us10')
   end
 end

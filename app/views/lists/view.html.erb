@@ -6,6 +6,8 @@
 <form action="/lists/<%= @list['id'] %>/subscribe/" method="post" class="form-inline">
     <input type="hidden" name="list_id" value="<%= @list['id'] %>"/>
     <input type="email" name="email" placeholder="email address"/>
+    <input type="hidden" name="group_id" value="2458" />
+    <input type="text" name="interest" placeholder="Name of the Interest"/>
     <input type="submit" class="btn" value="Add Member"/>
 </form>
 
@@ -15,13 +17,16 @@
         <th>Email</th>
         <th>Subscribed Since</th>
         <th>Member Rating</th>
+        <th>Group</th>
+        <th>Group of Interest</th>
     </tr>
     <% @members.each do |member| %>
     <tr>
         <td><%= member['email'] %></td>
         <td><%= member['timestamp'] %></td>
         <td><%= member['member_rating'] %></td>
+        <td><%= member['merges']['GROUPINGS'].first['name'] %></td>
+        <td><%= group_of_interest(member) %></td>
     </tr>
     <% end %>
 </table>
-

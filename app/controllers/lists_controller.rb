@@ -37,8 +37,11 @@ class ListsController < ApplicationController
   def subscribe
     list_id = params[:id]
     email = params['email']
+    group_id = params[:group_id]
+    interest = params[:interest]
     begin
-      @mc.lists.subscribe(params[:id], {'email' => email})
+      @mc.lists.subscribe(params[:id], {email: email, merge_vars:
+        { groupings: [ { id: group_id, groups: [interest] } ] }})
       flash[:success] = "#{email} subscribed successfully"
     rescue Mailchimp::ListAlreadySubscribedError
       flash[:error] = "#{email} is already subscribed to the list"

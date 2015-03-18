@@ -7,6 +7,7 @@
         <th>Subscriber Count</th>
         <th>Date Created</th>
         <th>List Rating</th>
+        <th>Group Count</th>
     </tr>
 
     <% @lists.each do |list| %>
@@ -15,8 +16,8 @@
         <td><%= list['stats']['member_count'] %></td>
         <td><%= list['date_created'] %></td>
         <td><%= list['list_rating'] %></td>
+        <td><%= list['stats']['group_count'] %></td>
     </tr>
     <% end %>
 
 </table>
-
